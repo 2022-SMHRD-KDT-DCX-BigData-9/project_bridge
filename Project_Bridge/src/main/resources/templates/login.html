@@ -15,27 +15,42 @@
 			<div class="col align-items-center flex-col sign-up">
 				<div class="form-wrapper align-items-center">
 					<div class="form sign-up">
-						<div class="input-group">
-							<i class='bx bxs-user'></i> <input type="text"
-								placeholder="Username">
-						</div>
-						<div class="input-group">
-							<i class='bx bx-mail-send'></i> <input type="email"
-								placeholder="Email">
-						</div>
-						<div class="input-group">
-							<i class='bx bxs-lock-alt'></i> <input type="password"
-								placeholder="Password">
-						</div>
-						<div class="input-group">
-							<i class='bx bxs-lock-alt'></i> <input type="password"
-								placeholder="Confirm password">
-						</div>
-						<button>Sign up</button>
-						<p>
-							<span> Already have an account? </span> <b onclick="toggle()"
-								class="pointer"> Sign in here </b>
-						</p>
+						<form method="post" action="user/register">
+							<div class="input-group">
+								<i class='bx bx-mail-send'></i> <input type="email"
+									placeholder="Email" name="userId">
+							</div>
+							<div class="input-group">
+								<i class='bx bxs-lock-alt'></i> <input type="password"
+									placeholder="Password" name="userPw">
+							</div>
+							<div class="input-group">
+								<i class='bx bxs-user'></i> <input type="text"
+									placeholder="Username" name="userName">
+							</div>
+							<div class="input-group">
+								<i class='bx bxs-user'></i> <input type="text"
+									placeholder="Nickname" name="userNick">
+							</div>
+							<div class="input-group">
+								<i class='bx bxs-user'></i> <input type="date"
+									placeholder="Birthday" name="userBirthday">
+							</div>
+							<div class="input-group">
+								<i class='bx bxs-user'></i> <input type="text"
+									name="userAddress" placeholder="Address" id="sample5_address"><input
+									type="button" onclick="sample5_execDaumPostcode()"
+									value="주소 검색">
+							</div>
+							<div id="map"
+								style="width: 300px; height: 300px; margin-top: 10px; display: none"></div>
+
+							<button type="submit">Sign up</button>
+							<p>
+								<span> Already have an account? </span> <b onclick="toggle()"
+									class="pointer"> Sign in here </b>
+							</p>
+						</form>
 					</div>
 				</div>
 
@@ -44,54 +59,115 @@
 			<!-- SIGN IN -->
 			<div class="col align-items-center flex-col sign-in">
 				<div class="form-wrapper align-items-center">
-					<div class="form sign-in">
-						<div class="input-group">
-							<i class='bx bxs-user'></i> <input type="text"
-								placeholder="Username">
-						</div>
-						<div class="input-group">
-							<i class='bx bxs-lock-alt'></i> <input type="password"
-								placeholder="Password">
-						</div>
-						<button>Sign in</button>
-						<p>
-							<b> Forgot password? </b>
-						</p>
-						<p>
-							<span> Don't have an account? </span> <b onclick="toggle()"
-								class="pointer"> Sign up here </b>
-						</p>
-					</div>
+					<form method="post" action="user/login">
+						<div class="form sign-in">
+							<div class="input-group">
+								<i class='bx bxs-user'></i> <input type="email"
+									placeholder="Email" name="userId">
+							</div>
+							<div class="input-group">
+								<i class='bx bxs-lock-alt'></i> <input type="password"
+									placeholder="Password" name="userPw">
+							</div>
+							<button>Sign in</button>
+							<p>
+								<b> Forgot password? </b>
+							</p>
+							<p>
+								<span> Don't have an account? </span> <b onclick="toggle()"
+									class="pointer"> Sign up here </b>
+							</p>
+					</form>
 				</div>
-				<div class="form-wrapper"></div>
 			</div>
-			<!-- END SIGN IN -->
+			<div class="form-wrapper"></div>
 		</div>
-		<!-- END FORM SECTION -->
-		<!-- CONTENT SECTION -->
-		<div class="row content-row">
-			<!-- SIGN IN CONTENT -->
-			<div class="col align-items-center flex-col">
-				<div class="text sign-in">
-					<h2>Welcome</h2>
-
-				</div>
-				<div class="img sign-in"></div>
-			</div>
-			<!-- END SIGN IN CONTENT -->
-			<!-- SIGN UP CONTENT -->
-			<div class="col align-items-center flex-col">
-				<div class="img sign-up"></div>
-				<div class="text sign-up">
-					<h2>Join with us</h2>
-
-				</div>
-			</div>
-			<!-- END SIGN UP CONTENT -->
-		</div>
-		<!-- END CONTENT SECTION -->
+		<!-- END SIGN IN -->
 	</div>
-	
+	<!-- END FORM SECTION -->
+	<!-- CONTENT SECTION -->
+	<div class="row content-row">
+		<!-- SIGN IN CONTENT -->
+		<div class="col align-items-center flex-col">
+			<div class="text sign-in">
+				<h2>Welcome</h2>
+
+			</div>
+			<div class="img sign-in"></div>
+		</div>
+		<!-- END SIGN IN CONTENT -->
+		<!-- SIGN UP CONTENT -->
+		<div class="col align-items-center flex-col">
+			<div class="img sign-up"></div>
+			<div class="text sign-up">
+				<h2>Join with us</h2>
+
+			</div>
+		</div>
+		<!-- END SIGN UP CONTENT -->
+	</div>
+	<!-- END CONTENT SECTION -->
+	</div>
+
+
+
 	<script type="text/javascript" src="js/login.js"></script>
+
+	<!-- 카카오맵 API -->
+	<script
+		src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+	<!-- 우편번호 받는 API -->
+	<script
+		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a0080ec850b9ee7cb65ff959024ac67d&libraries=services"></script>
+	<script>
+		var mapContainer = document.getElementById('map'), // 지도를 표시할 div   
+		mapOption = {
+			center : new daum.maps.LatLng(37.537187, 127.005476), // 지도의 중심좌표
+			level : 5
+		// 지도의 확대 레벨
+		};
+
+		//지도를 미리 생성
+		var map = new daum.maps.Map(mapContainer, mapOption);
+		//주소-좌표 변환 객체를 생성
+		var geocoder = new daum.maps.services.Geocoder();
+		//마커를 미리 생성
+		var marker = new daum.maps.Marker({
+			position : new daum.maps.LatLng(37.537187, 127.005476), // 중심좌표에 마커 생성
+			map : map
+		});
+
+		// 버튼 클릭 시 작동하는 function()
+		function sample5_execDaumPostcode() {
+			new daum.Postcode({
+				oncomplete : function(data) {
+					var addr = data.address; // 최종 주소 변수
+
+					// 입력한 주소 가져오기
+					document.getElementById("sample5_address").value = addr;
+					// 주소로 상세 정보를 검색
+					geocoder.addressSearch(data.address, function(results,
+							status) {
+						// 정상적으로 검색이 완료됐으면
+						if (status === daum.maps.services.Status.OK) {
+
+							var result = results[0]; //첫번째 결과의 값을 활용
+
+							// 해당 주소에 대한 좌표를 coords에 저장
+							var coords = new daum.maps.LatLng(result.y,
+									result.x);
+							// 지도를 보여준다.
+							mapContainer.style.display = "none";
+							map.relayout();
+							// 지도 중심을 변경한다.
+							map.setCenter(coords);
+							// 마커를 결과값으로 받은 위치로 옮긴다.
+							marker.setPosition(coords)
+						}
+					});
+				}
+			}).open();
+		}
+	</script>
 </body>
 </html>
