@@ -1,4 +1,4 @@
-package com.example.bridge;
+package com.smhrd.bridge;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,0 +1,10 @@
+package com.smhrd.bridge.entity;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "userinfo")
+public class UserInfo {
+
+}
