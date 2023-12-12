@@ -8,4 +8,7 @@ import com.smhrd.bridge.entity.UserInfo;
 @Repository
 public interface UserRepository extends JpaRepository<UserInfo, String>{
 	public UserInfo findByUserIdAndUserPw(String userId, String userPw);
+	
+
+
 }

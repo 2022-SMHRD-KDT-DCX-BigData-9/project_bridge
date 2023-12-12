@@ -19,11 +19,13 @@ public class UserController {
 		try {
 			service.register(user);
 			System.out.println("회원가입 성공");
+			return "login";
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("회원가입 실패");
+			return "login";
 		}
-		return "redirect:/";
+		
 	}
 
 	@PostMapping("/user/login")
@@ -32,11 +34,26 @@ public class UserController {
 
 	    if (result == null) {
 	        System.out.println("로그인 실패");
+	        return "login";
 	    } else {
 	        session.setAttribute("loginUser", result);
 	        System.out.println("로그인 성공");
+	        return "redirect:/";
 	    }
-	    return "redirect:/";
+	    
+	}
+	
+	@PostMapping("/user/update")
+	public String update(UserInfo user, HttpSession session) {
+		try {
+			service.update(user);
+			session.setAttribute("loginUser", user);
+			System.out.println("회원정보 수정 성공");
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("회원정보 수정 실패");
+		}
+		return "redirect:/mypage";
 	}
 
 }

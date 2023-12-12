@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Pet Sitting - Free Bootstrap 4 Template by Colorlib</title>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link
+	href="https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600,700,800&display=swap"
+	rel="stylesheet">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="css/animate.css">
+<link rel="stylesheet" href="css/owl.carousel.min.css">
+<link rel="stylesheet" href="css/owl.theme.default.min.css">
+<link rel="stylesheet" href="css/magnific-popup.css">
+<link rel="stylesheet" href="css/flaticon.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<!-- Header -->
+	<div th:replace="/header :: header"></div>
+	<!-- nav -->
+	<section class="hero-wrap hero-wrap-2"
+		style="background-image: url('#');"
+		data-stellar-background-ratio="0.5">
+		<div class="overlay"></div>
+		<div class="container">
+			<div class="row no-gutters slider-text align-items-end">
+				<div class="col-md-9 ftco-animate pb-5">
+					<h1 class="mb-0 bread">Mypage</h1>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="ftco-section ftco-degree-bg">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 ftco-animate">
+					<p>
+						<img src="images/image_1.jpg" alt="" class="img-fluid"> <span>프로필카드
+							미리보기</span>
+					</p>
+					<br>
+					<!-- 회원정보 수정 -->
+					<form method="POST" action="user/update" id="contactForm"
+						name="contactForm" class="contactForm">
+						<div class="row">
+							<div class="col-md-8">
+								<div class="form-group">
+									<label class="label" for="userId">아이디(이메일)</label> <input
+										type="email" class="form-control" name="userId" id="userId"
+										th:value="${session.loginUser.userId}" readonly>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label class="label" for="userName">이름</label> <input
+										type="text" class="form-control" name="userName" id="userName"
+										th:value="${session.loginUser.userName}">
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label class="label" for="userNick">닉네임</label> <input
+										type="text" class="form-control" name="userNick" id="userNick"
+										th:value="${session.loginUser.userNick}">
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label class="label" for="userPw">비밀번호 수정</label>
+									<!-- 히든으로 세션의 비밀번호 정보 가지고 있는 것도 괜찮을듯. -->
+									<input type="password" class="form-control" name="userPw"
+										id="userPw" th:value="${session.loginUser.userPw}">
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label class="label" for="userBirthday">생년월일</label> <input
+										type="date" class="form-control" name="userBirthday"
+										id="userBirthday" th:value="${session.loginUser.userBirthday}">
+								</div>
+							</div>
+							<div class="col-md-12">
+								<div class="form-group">
+									<label class="label" for="subject">주소</label>
+									<div>
+										<input type="text" class="form-control" name="userAddress"
+											id="sample5_address"
+											th:value="${session.loginUser.userAddress}"> <input
+											type="button" class="btn btn-primary"
+											onclick="sample5_execDaumPostcode()" value="주소 검색">
+										<div id="map"
+											style="width: 300px; height: 300px; margin-top: 10px; display: none"></div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-12">
+								<div class="form-group">
+									<label class="label" for="#">한 줄 소개</label>
+									<textarea name="message" class="form-control" id="message"
+										cols="30" rows="4" placeholder="Message"></textarea>
+								</div>
+							</div>
+							<div class="col-md-12">
+								<div class="form-group">
+									<input type="submit" value="회원 정보 수정" class="btn btn-primary">
+									<div class="submitting"></div>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+				<!-- .col-md-8 -->
+				<div class="col-lg-4 sidebar pl-lg-5 ftco-animate">
+					<div class="sidebar-box">
+						<form action="#" class="search-form">
+							<div class="form-group">
+								<span class="fa fa-search"></span> <input type="text"
+									class="form-control" placeholder="Type a keyword and hit enter">
+							</div>
+						</form>
+					</div>
+					<div class="sidebar-box ftco-animate">
+						<h3>업로드한 노래</h3>
+						<div class="block-21 mb-4 d-flex">
+							<a class="blog-img mr-4"
+								style="background-image: url(images/image_1.jpg);"></a>
+							<div class="text">
+								<h4 class="heading">
+									<a href="#">
+										<p>가수명 : 노래이름</p>
+									</a>
+								</h4>
+								<div class="meta">
+									<div></div>
+									<div>
+										<a href="#"><span class="icon-person"></span> 2023-12-12</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="block-21 mb-4 d-flex">
+							<a class="blog-img mr-4"
+								style="background-image: url(images/image_1.jpg);"></a>
+							<div class="text">
+								<h4 class="heading">
+									<a href="#">
+										<p>가수명 : 노래이름</p>
+									</a>
+								</h4>
+								<div class="meta">
+									<div></div>
+									<div>
+										<a href="#"><span class="icon-person"></span> 2023-12-12</a>
+									</div>
+								</div>
+							</div>
+						</div>
+							<nav aria-label="Page navigation example">
+							<div class="pagination d-flex justify-content-center">
+								<span class="page-item" th:if="${page > 1}"> <a
+									class="page-link" th:href="@{/mypage(page=${page - 1})}">Previous</a></span>
+								<span class="page-item"
+									th:each="pageNumber : ${#numbers.sequence(1, totalPages)}">
+									<a class="page-link" th:href="@{/mypage(page=${pageNumber})}"
+									th:text="${pageNumber}"></a>
+								</span> <span class="page-item" th:if="${page < totalPages}"> <a
+									class="page-link" th:href="@{/mypage(page=${page + 1})}">Next</a>
+								</span>
+							</div>
+						</nav>
+						<a href = "uploadmusic"><button>노래 업로드하기</button></a>
+					</div>
+					<div class="sidebar-box ftco-animate">
+						<div class="categories">
+							<h3>음악 평점</h3>
+							<li>
+							  <a href="#">가수 : 노래이름 
+							    <span class="fa fa-chevron-right"></span>
+							  </a>
+							</li>
+							<li>
+							  <a href="#">가수 : 노래이름 
+							    <span class="fa fa-chevron-right"></span>
+							   </a>
+							</li>
+						</div>
+					</div>
+
+
+
+					<div class="sidebar-box ftco-animate">
+						<h3>취향 분석</h3>
+						<div class="tagcloud">
+							<a href="#" class="tag-cloud-link">cat</a> <a href="#"
+								class="tag-cloud-link">dog</a> <a href="#"
+								class="tag-cloud-link">pet</a> <a href="#"
+								class="tag-cloud-link">bird</a> <a href="#"
+								class="tag-cloud-link">husky</a> <a href="#"
+								class="tag-cloud-link">bulldog</a> <a href="#"
+								class="tag-cloud-link">food</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- footer -->
+	<div th:replace="/footer :: footer"></div>
+	<!-- loader -->
+	<div id="ftco-loader" class="show fullscreen">
+		<svg class="circular" width="48px" height="48px">
+			<circle class="path-bg" cx="24" cy="24" r="22" fill="none"
+				stroke-width="4" stroke="#eeeeee" />
+			<circle class="path" cx="24" cy="24" r="22" fill="none"
+				stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg>
+	</div>
+
+
+	<script src="js/jquery.min.js"></script>
+	<script src="js/jquery-migrate-3.0.1.min.js"></script>
+	<script src="js/popper.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.easing.1.3.js"></script>
+	<script src="js/jquery.waypoints.min.js"></script>
+	<script src="js/jquery.stellar.min.js"></script>
+	<script src="js/jquery.animateNumber.min.js"></script>
+	<script src="js/bootstrap-datepicker.js"></script>
+	<script src="js/jquery.timepicker.min.js"></script>
+	<script src="js/owl.carousel.min.js"></script>
+	<script src="js/jquery.magnific-popup.min.js"></script>
+	<script src="js/scrollax.min.js"></script>
+	<script
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+	<script src="js/google-map.js"></script>
+	<script src="js/main.js"></script>
+
+	<!-- 카카오맵 API -->
+	<script
+		src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+	<!-- 우편번호 받는 API -->
+	<script
+		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a0080ec850b9ee7cb65ff959024ac67d&libraries=services"></script>
+	<script>
+		var mapContainer = document.getElementById('map'), // 지도를 표시할 div   
+		mapOption = {
+			center : new daum.maps.LatLng(37.537187, 127.005476), // 지도의 중심좌표
+			level : 5
+		// 지도의 확대 레벨
+		};
+
+		//지도를 미리 생성
+		var map = new daum.maps.Map(mapContainer, mapOption);
+		//주소-좌표 변환 객체를 생성
+		var geocoder = new daum.maps.services.Geocoder();
+		//마커를 미리 생성
+		var marker = new daum.maps.Marker({
+			position : new daum.maps.LatLng(37.537187, 127.005476), // 중심좌표에 마커 생성
+			map : map
+		});
+
+		// 버튼 클릭 시 작동하는 function()
+		function sample5_execDaumPostcode() {
+			new daum.Postcode({
+				oncomplete : function(data) {
+					var addr = data.address; // 최종 주소 변수
+
+					// 입력한 주소 가져오기
+					document.getElementById("sample5_address").value = addr;
+					// 주소로 상세 정보를 검색
+					geocoder.addressSearch(data.address, function(results,
+							status) {
+						// 정상적으로 검색이 완료됐으면
+						if (status === daum.maps.services.Status.OK) {
+
+							var result = results[0]; //첫번째 결과의 값을 활용
+
+							// 해당 주소에 대한 좌표를 coords에 저장
+							var coords = new daum.maps.LatLng(result.y,
+									result.x);
+							// 지도를 보여준다.
+							mapContainer.style.display = "none";
+							map.relayout();
+							// 지도 중심을 변경한다.
+							map.setCenter(coords);
+							// 마커를 결과값으로 받은 위치로 옮긴다.
+							marker.setPosition(coords)
+						}
+					});
+				}
+			}).open();
+		}
+	</script>
+
+</body>
+</html>

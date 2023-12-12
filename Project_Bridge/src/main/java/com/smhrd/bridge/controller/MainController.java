@@ -9,4 +9,24 @@ public class MainController {
 	public String login() {
 		return "login";
 	}
+
+	@GetMapping("/preference")
+	public String preference() {
+		return "preference";
+	}
+
+	@GetMapping("/matchingpage")
+	public String matchingpage() {
+		return "matchingpage";
+	}
+
+//	@GetMapping("/mypage")
+//	public String mypage() {
+//		return "mypage";
+//	}
+	
+	@GetMapping("/uploadmusic")
+	public String uploadmusic() {
+		return "uploadmusic";
+	}
 }

@@ -38,8 +38,8 @@ public class UserInfo {
 	private LocalDate userBirthday;
 	
 	@CreationTimestamp // 실제 시간 읽기
-	@Column(name = "joinBirthday", nullable = false)
-	private LocalDate joinBirthday;
+	@Column(name = "joinDate", nullable = false)
+	private LocalDate joinDate;
 
 	@Column(name = "userAddress", nullable = false)
 	private String userAddress;

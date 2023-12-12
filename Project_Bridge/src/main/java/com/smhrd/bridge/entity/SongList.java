@@ -5,16 +5,25 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 
 @Entity
 @Table(name = "songlist")
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class SongList {
 	@Id
-	@Column(name = "song_num")
-	private int song_num;
+	@Column(name = "songNum")
+	private int songNum;
 	
-	@Column(name = "song_name", length = 100, nullable = false)
-	private String song_name;
+	@Column(name = "songName", length = 100, nullable = false)
+	private String songName;
 	
 	@Column(name = "singer", length = 30, nullable = false)
 	private String singer;
