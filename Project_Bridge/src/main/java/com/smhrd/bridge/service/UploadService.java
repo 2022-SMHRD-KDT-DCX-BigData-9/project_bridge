@@ -28,7 +28,7 @@ public class UploadService {
 
 		for(int i = 0; i < list.size(); i++) {
 			UserSong contents = list.get(i);
-			File file = new File("c:\\uploadImage\\" + contents.getSongFile());
+			File file = new File("c:\\uploadMusic\\" + contents.getSongFile());
 			ImageConverter<File, String> converter= new ImageToBase64();
 			String fileStringValue = converter.convert(file);
 			list.get(i).setSongFile(fileStringValue);

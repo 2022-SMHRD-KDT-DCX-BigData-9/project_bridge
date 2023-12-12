@@ -53,7 +53,7 @@ public class UploadController {
 	        
 	        List<UserSong> musicToDisplay = recipes.subList(startIndex, endIndex);
 
-	        model.addAttribute("recipes", musicToDisplay);
+	        model.addAttribute("musics", musicToDisplay);
 	        model.addAttribute("page", page);
 	        model.addAttribute("totalPages", totalPages);        			
 		}

@@ -14,7 +14,6 @@
 <link rel="stylesheet" href="css/animate.css">
 <link rel="stylesheet" href="css/owl.carousel.min.css">
 <link rel="stylesheet" href="css/owl.theme.default.min.css">
-<link rel="stylesheet" href="css/magnific-popup.css">
 <link rel="stylesheet" href="css/flaticon.css">
 <link rel="stylesheet" href="css/style.css">
 </head>
@@ -125,41 +124,26 @@
 					</div>
 					<div class="sidebar-box ftco-animate">
 						<h3>업로드한 노래</h3>
-						<div class="block-21 mb-4 d-flex">
-							<a class="blog-img mr-4"
-								style="background-image: url(images/image_1.jpg);"></a>
+						<a class="btn btn-primary" href="uploadmusic">노래 업로드하기</a>
+						<br>
+						<br>
+						<div class="block-21 mb-4 d-flex" th:each="b : ${musics}">
 							<div class="text">
+							<audio controls>
+									<source th:src="@{'data:audio/mp3;base64, '} + ${b.songFile}"
+										type="audio/ogg">
+									<source src="/examples/media/sample_audio_mp3.mp3"
+										type="audio/mpeg">
+								</audio>
 								<h4 class="heading">
-									<a href="#">
-										<p>가수명 : 노래이름</p>
-									</a>
+									<span th:text = "${b.userSongName}"></span>
+									<span> - </span>
+									<span th:text = "${b.userSinger}"></span>
 								</h4>
-								<div class="meta">
-									<div></div>
-									<div>
-										<a href="#"><span class="icon-person"></span> 2023-12-12</a>
-									</div>
-								</div>
+									<span class="icon-person"> 2023-12-12</span>
 							</div>
 						</div>
-						<div class="block-21 mb-4 d-flex">
-							<a class="blog-img mr-4"
-								style="background-image: url(images/image_1.jpg);"></a>
-							<div class="text">
-								<h4 class="heading">
-									<a href="#">
-										<p>가수명 : 노래이름</p>
-									</a>
-								</h4>
-								<div class="meta">
-									<div></div>
-									<div>
-										<a href="#"><span class="icon-person"></span> 2023-12-12</a>
-									</div>
-								</div>
-							</div>
-						</div>
-							<nav aria-label="Page navigation example">
+						<nav aria-label="Page navigation example">
 							<div class="pagination d-flex justify-content-center">
 								<span class="page-item" th:if="${page > 1}"> <a
 									class="page-link" th:href="@{/mypage(page=${page - 1})}">Previous</a></span>
@@ -172,26 +156,19 @@
 								</span>
 							</div>
 						</nav>
-						<a href = "uploadmusic"><button>노래 업로드하기</button></a>
+						
 					</div>
 					<div class="sidebar-box ftco-animate">
 						<div class="categories">
 							<h3>음악 평점</h3>
-							<li>
-							  <a href="#">가수 : 노래이름 
-							    <span class="fa fa-chevron-right"></span>
-							  </a>
-							</li>
-							<li>
-							  <a href="#">가수 : 노래이름 
-							    <span class="fa fa-chevron-right"></span>
-							   </a>
-							</li>
+							<li><a href="#">가수 : 노래이름 <span
+									class="fa fa-chevron-right"></span>
+							</a></li>
+							<li><a href="#">가수 : 노래이름 <span
+									class="fa fa-chevron-right"></span>
+							</a></li>
 						</div>
 					</div>
-
-
-
 					<div class="sidebar-box ftco-animate">
 						<h3>취향 분석</h3>
 						<div class="tagcloud">
@@ -218,8 +195,6 @@
 			<circle class="path" cx="24" cy="24" r="22" fill="none"
 				stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg>
 	</div>
-
-
 	<script src="js/jquery.min.js"></script>
 	<script src="js/jquery-migrate-3.0.1.min.js"></script>
 	<script src="js/popper.min.js"></script>
