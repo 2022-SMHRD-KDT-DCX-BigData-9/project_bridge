@@ -15,10 +15,10 @@ public class MainController {
 		return "preference";
 	}
 
-	@GetMapping("/matchingpage")
-	public String matchingpage() {
-		return "matchingpage";
-	}
+//	@GetMapping("/matchingpage")
+//	public String matchingpage() {
+//		return "matchingpage";
+//	}
 
 //	@GetMapping("/mypage")
 //	public String mypage() {

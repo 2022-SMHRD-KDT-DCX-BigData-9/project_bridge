@@ -46,35 +46,35 @@
 			<div class="col-md-12 half p-3 py-5 pl-lg-5 ftco-animate" style = "border : 1px solid lightgray;">
 				<h2 class="mb-4">직접 녹음한 노래를 업로드하세요!</h2>
 				<form method = "post" action="uploadmusic/save" class="appointment" enctype="multipart/form-data">
-					<div class="row">
+					<div>
 						<div class="col-md-12">
 							<div class="form-group">
-								<input type ="hidden" name = "userId" th:value = "${session.loginUser.userId}" >
 								<label for="writer" class="col-sm-2 col-form-label fw-bolder">작성자</label>
-								<input type="text" name = "writer" class="form-control" th:value="${session.loginUser.userNick}" >
+								<input type="text" class="form-control" th:value="${session.loginUser.user_nick}" >
 							</div>
 						</div>
 						<div class="col-md-6">
 							<div class="form-group">
 								<div class="input-wrap">
+									<input type ="hidden" name = "user_id" th:value = "${session.loginUser.user_id}" >
 									<label for="userSinger" class="col-sm-2 col-form-label fw-bolder">가수명</label>
-									<input type="text" name = "userSinger" class="form-control appointment_date" placeholder="가수명을 입력하세요">
+									<input type="text" name = "user_singer" class="form-control appointment_date" placeholder="가수명을 입력하세요">
 								</div>
 							</div>
 						</div>
 						<div class="col-md-6">
 							<div class="form-group">
 								<div class="input-wrap">
-									<label for="userSongName" class="col-sm-2 col-form-label fw-bolder">노래명</label>
-									<input type="text" name = "userSongName" class="form-control appointment_time" placeholder="노래명을 입력하세요">
+									<label for="user_song_name" class="col-sm-2 col-form-label fw-bolder">노래명</label>
+									<input type="text" name = "user_song_name" class="form-control appointment_time" placeholder="노래명을 입력하세요">
 								</div>
 							</div>
 						</div>
 						<div class="col-md-6">
 							<div class="form-group">
 								<div class="input-wrap">
-									<input type="checkbox" name = "noiseCancel" class="col-sm-2 fw-bolder">
-									<label for="noiseCancel" class="col-sm-5 col-form-label fw-bolder">잡음제거</label>									
+									<input type="checkbox" name = "noise_cancel" class="col-sm-2 fw-bolder">
+									<label for="noise_cancel" class="col-sm-5 col-form-label fw-bolder">잡음제거</label>									
 								</div>
 							</div>
 						</div>

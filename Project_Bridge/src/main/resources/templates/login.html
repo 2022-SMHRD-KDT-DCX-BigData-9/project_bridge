@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
-<link rel="stylesheet" type="text/css" href="../css/login.css">
+<link rel="stylesheet" type="text/css" href="css/login.css">
 
 </head>
 <body>
@@ -15,30 +15,30 @@
 			<div class="col align-items-center flex-col sign-up">
 				<div class="form-wrapper align-items-center">
 					<div class="form sign-up">
-						<form method="post" action="../user/register">
+						<form method="post" action="user/register">
 							<div class="input-group">
 								<i class='bx bx-mail-send'></i> <input type="email"
-									placeholder="Email" name="userId">
+									placeholder="Email" name="user_id">
 							</div>
 							<div class="input-group">
 								<i class='bx bxs-lock-alt'></i> <input type="password"
-									placeholder="Password" name="userPw">
+									placeholder="Password" name="user_pw">
 							</div>
 							<div class="input-group">
 								<i class='bx bxs-user'></i> <input type="text"
-									placeholder="Username" name="userName">
+									placeholder="Username" name="user_name">
 							</div>
 							<div class="input-group">
 								<i class='bx bxs-user'></i> <input type="text"
-									placeholder="Nickname" name="userNick">
+									placeholder="Nickname" name="user_nick">
 							</div>
 							<div class="input-group">
 								<i class='bx bxs-user'></i> <input type="date"
-									placeholder="Birthday" name="userBirthday">
+									placeholder="Birthday" name="user_birthday">
 							</div>
 							<div class="input-group">
 								<i class='bx bxs-user'></i> <input type="text"
-									name="userAddress" placeholder="Address" id="sample5_address"><input
+									name="user_address" placeholder="Address" id="sample5_address"><input
 									type="button" onclick="sample5_execDaumPostcode()"
 									value="주소 검색">
 							</div>
@@ -59,15 +59,15 @@
 			<!-- SIGN IN -->
 			<div class="col align-items-center flex-col sign-in">
 				<div class="form-wrapper align-items-center">
-					<form method="post" action="../user/login">
+					<form method="post" action="user/login">
 						<div class="form sign-in">
 							<div class="input-group">
 								<i class='bx bxs-user'></i> <input type="email"
-									placeholder="Email" name="userId">
+									placeholder="Email" name="user_id">
 							</div>
 							<div class="input-group">
 								<i class='bx bxs-lock-alt'></i> <input type="password"
-									placeholder="Password" name="userPw">
+									placeholder="Password" name="user_pw">
 							</div>
 							<button>Sign in</button>
 							<p>
@@ -109,7 +109,7 @@
 	<!-- END CONTENT SECTION -->
 	</div>
 
-	<script type="text/javascript" src="../js/login.js"></script>
+	<script type="text/javascript" src="js/login.js"></script>
 
 	<!-- 카카오맵 API -->
 	<script

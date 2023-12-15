@@ -19,11 +19,11 @@ public class UserController {
 		try {
 			service.register(user);
 			System.out.println("회원가입 성공");
-			return "login";
+			return "redirect:/login";
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("회원가입 실패");
-			return "login";
+			return "redirect:/login";
 		}
 		
 	}
@@ -34,7 +34,7 @@ public class UserController {
 
 	    if (result == null) {
 	        System.out.println("로그인 실패");
-	        return "login";
+	        return "redirect:/login";
 	    } else {
 	        session.setAttribute("loginUser", result);
 	        System.out.println("로그인 성공");

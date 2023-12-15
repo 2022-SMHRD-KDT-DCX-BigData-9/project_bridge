@@ -45,50 +45,56 @@
 					<!-- 회원정보 수정 -->
 					<form method="POST" action="user/update" id="contactForm"
 						name="contactForm" class="contactForm">
-						<div class="row">
+						<div>
 							<div class="col-md-8">
 								<div class="form-group">
-									<label class="label" for="userId">아이디(이메일)</label> <input
-										type="email" class="form-control" name="userId" id="userId"
-										th:value="${session.loginUser.userId}" readonly>
+									<label class="label" for="user_id">아이디(이메일)</label> <input
+										type="email" class="form-control" name="user_id" id="user_id"
+										th:value="${session.loginUser.user_id}" readonly>
+								</div>
+							</div>
+						<div class = "row">
+							<div class="col-md-6">
+								<div class="form-group">
+									<label class="label" for="user_name">이름</label> <input
+										type="text" class="form-control" name="user_name" id="user_name"
+										th:value="${session.loginUser.user_name}">
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
-									<label class="label" for="userName">이름</label> <input
-										type="text" class="form-control" name="userName" id="userName"
-										th:value="${session.loginUser.userName}">
+									<label class="label" for="user_nick">닉네임</label> <input
+										type="text" class="form-control" name="user_nick" id="user_nick"
+										th:value="${session.loginUser.user_nick}">
 								</div>
 							</div>
+						</div>
+						<div class = "row">
 							<div class="col-md-6">
 								<div class="form-group">
-									<label class="label" for="userNick">닉네임</label> <input
-										type="text" class="form-control" name="userNick" id="userNick"
-										th:value="${session.loginUser.userNick}">
-								</div>
-							</div>
-							<div class="col-md-6">
-								<div class="form-group">
-									<label class="label" for="userPw">비밀번호 수정</label>
+									<label class="label" for="user_pw">비밀번호 수정</label>
 									<!-- 히든으로 세션의 비밀번호 정보 가지고 있는 것도 괜찮을듯. -->
-									<input type="password" class="form-control" name="userPw"
-										id="userPw" th:value="${session.loginUser.userPw}">
+									<input type="password" class="form-control" name="user_pw"
+										id="user_pw" th:value="${session.loginUser.user_pw}">
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
-									<label class="label" for="userBirthday">생년월일</label> <input
-										type="date" class="form-control" name="userBirthday"
-										id="userBirthday" th:value="${session.loginUser.userBirthday}">
+									<label class="label" for="user_birthday">생년월일</label> <input
+										type="date" class="form-control" name="user_birthday"
+										id="user_birthday" th:value="${session.loginUser.user_birthday}">
 								</div>
 							</div>
-							<div class="col-md-12">
+						</div>
+							<div class="col-md-8">
 								<div class="form-group">
 									<label class="label" for="subject">주소</label>
 									<div>
-										<input type="text" class="form-control" name="userAddress"
+										<input type="text" class="form-control" name="user_address"
 											id="sample5_address"
-											th:value="${session.loginUser.userAddress}"> <input
+											th:value="${session.loginUser.user_address}"> 
+										<br>	
+										<input
 											type="button" class="btn btn-primary"
 											onclick="sample5_execDaumPostcode()" value="주소 검색">
 										<div id="map"
@@ -130,15 +136,15 @@
 						<div class="block-21 mb-4 d-flex" th:each="b : ${musics}">
 							<div class="text">
 							<audio controls>
-									<source th:src="@{'data:audio/mp3;base64, '} + ${b.songFile}"
+									<source th:src="@{'data:audio/mp3;base64, '} + ${b.song_file}"
 										type="audio/ogg">
 									<source src="/examples/media/sample_audio_mp3.mp3"
 										type="audio/mpeg">
 								</audio>
 								<h4 class="heading">
-									<span th:text = "${b.userSongName}"></span>
+									<span th:text = "${b.user_song_name}"></span>
 									<span> - </span>
-									<span th:text = "${b.userSinger}"></span>
+									<span th:text = "${b.user_singer}"></span>
 								</h4>
 									<span class="icon-person"> 2023-12-12</span>
 							</div>

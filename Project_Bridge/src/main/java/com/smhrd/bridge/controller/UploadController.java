@@ -23,6 +23,7 @@ import javax.servlet.http.HttpSession;
 
 @Controller
 public class UploadController {
+	
 	@Autowired
 	UploadService service;
 	
@@ -34,7 +35,7 @@ public class UploadController {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		usersong.setSongFile(newFileName);
+		usersong.setSong_file(newFileName);
 		service.uploadMusic(usersong);
 		return "redirect:/mypage";
 	}

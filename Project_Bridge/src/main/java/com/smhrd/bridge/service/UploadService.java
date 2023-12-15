@@ -11,27 +11,27 @@ import com.smhrd.bridge.converter.ImageConverter;
 import com.smhrd.bridge.converter.ImageToBase64;
 import com.smhrd.bridge.entity.UserInfo;
 import com.smhrd.bridge.entity.UserSong;
-import com.smhrd.bridge.repository.UploadRepository;
+import com.smhrd.bridge.mapper.UploadMapper;
+import com.smhrd.bridge.mapper.UserMapper;
 
 @Service
 public class UploadService {
 	
 	@Autowired
-	UploadRepository repo;
+	UploadMapper mapper;
 
 	public void uploadMusic(UserSong usersong) {
-		repo.save(usersong);
+		mapper.uploadMusic(usersong);
 	}
 	
 	public List<UserSong> mypage(UserInfo member) throws IOException{
-		List<UserSong> list = repo.findByUserId(member);
-
+		List<UserSong> list = mapper.mypage(member);
 		for(int i = 0; i < list.size(); i++) {
 			UserSong contents = list.get(i);
-			File file = new File("c:\\uploadMusic\\" + contents.getSongFile());
+			File file = new File("c:\\uploadMusic\\" + contents.getSong_file());
 			ImageConverter<File, String> converter= new ImageToBase64();
 			String fileStringValue = converter.convert(file);
-			list.get(i).setSongFile(fileStringValue);
+			list.get(i).setSong_file(fileStringValue);
 		}
 		return list;		
 	}	
