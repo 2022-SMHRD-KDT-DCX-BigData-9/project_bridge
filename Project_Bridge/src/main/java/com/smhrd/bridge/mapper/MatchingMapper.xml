@@ -5,5 +5,21 @@
 <select id="matchingPage" resultType="com.smhrd.bridge.entity.UserInfo">
 	select * from userinfo;
 </select>
-
+<select id="matchingProfile" resultType="com.smhrd.bridge.entity.UserSong">
+	select * from usersong where user_id = #{user_id}
+</select>
 </mapper>
+
+
+<!-- 	SELECT ui.user_id, 
+		   ui.user_name,
+		   ui.user_nick,
+		   ui.user_birthday,
+		   ui.user_address,
+		   us.song_file,
+		   us.user_song_name,
+		   us.user_singer
+   	 FROM userinfo ui
+     JOIN usersong us 
+       ON ui.user_id = us.user_id
+    WHERE ui.user_id = #{user_id} -->

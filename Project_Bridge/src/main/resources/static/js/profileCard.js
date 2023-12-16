@@ -1,42 +1,58 @@
 const divs = document.querySelectorAll('#profile');
+const detail = document.querySelector(".profilemodal");
 
 divs.forEach((div) => {
-	div.addEventListener('click', function() {
-		const userid = div.querySelector('#userId').value;
-		const usernick = div.querySelector('#userNick').value;
-		console.log(userid);
-		$.ajax({
-			type: 'GET',  // 또는 'GET' (컨트롤러 메서드에 따라 다름)
-			url: 'matchingPage/matchingProfile',  // 실제 엔드포인트로 교체
-			data: { "userId": userid ,
-				    "userNick" : usernick},
-			success: function(response) {
-				console.log(response)
-				const detail = document.querySelector("#profileModal")
-				detail.classList.remove('hidden');
-				detail.html("");
-				let content = `
-					<div class="modal-dialog">
-						<div class="modal-content">
-							<div class="modal-header">
-								<h1 class="modal-title fs-5" id="exampleModalLabel">의 프로필카드</h1>
-								<button type="button" class="btn-close" data-bs-dismiss="modal"
-							aria-label="Close"></button>
-							</div>
-						<div class="modal-body">
-					<br> <br>
-				</div>
-				<div class="modal-footer">
-					<a href="chat/"><button type="button" class="btn btn-primary">채팅하기</button></a>
-				</div>
-			</div>
-		</div>
-				`;
-			detail.append(content);
-			},
-			error: function(error) {
-				console.error(error);
-			}
-		});
-	});
+    div.addEventListener('click', function() {
+        const user_id = div.querySelector('#user_id').value;
+        console.log(user_id);
+        $.ajax({
+            type: 'GET',
+            url: 'matchingPage/matchingProfile',
+            data: { "user_id": user_id },
+            success: function(response) {      
+                const user_nick = div.querySelector('#user_nick').value;
+                detail.classList.remove('hidden');
+                detail.innerHTML = `
+                    <div class="profile_body">
+                        <p>${user_id}</p>
+                        <p>${user_nick}</p>
+                        <div class="profilesong"></div>
+                        <a href="chat"><button>채팅하기</button></a>
+						<button id = "closemodal">닫기</button>
+                    </div>
+                `;
+
+                const song = document.querySelector(".profilesong");
+
+                for (let i = 0; i < response.length; i++) {
+                    let list = response[i];
+                    let content = `
+                        <div class="text">
+                            <audio controls>
+                                <source src="data:audio/mp3;base64,${list.song_file}" type="audio/mpeg">
+                            </audio>
+                            <h4 class="heading">
+                                <span>${list.user_song_name}</span>
+                                <span> - </span>
+                                <span>${list.user_singer}</span>
+                            </h4>
+                            <span class="icon-person"> 2023-12-12</span>
+                        </div>
+                    `;
+                    song.innerHTML += content; // innerHTML로 수정
+                }
+
+            },
+            error: function(error) {
+                console.error(error);
+            }
+        });
+    });
+});
+
+document.addEventListener("click", (e) => {
+    if (e.target.id === "closemodal") {
+        detail.classList.add('hidden');
+		detail.innerHTML = "";
+    }
 });

@@ -20,11 +20,6 @@
 <link rel="stylesheet" href="css/owl.theme.default.min.css">
 <link rel="stylesheet" href="css/flaticon.css">
 <link rel="stylesheet" href="css/style.css">
-<style>
-        .hidden {
-            display:none;
-        }
-</style>
 </head>
 <body>
 	<!-- Header -->
@@ -35,6 +30,7 @@
 		data-stellar-background-ratio="0.5">
 		<div class="overlay"></div>
 		<div class="container">
+		<div class = "profilemodal hidden"></div>
 			<div class="row no-gutters slider-text align-items-end">
 				<div class="col-md-9 ftco-animate pb-5">
 					<p class="breadcrumbs mb-2">
@@ -50,15 +46,14 @@
 	<section class="ftco-section bg-light">
 		<div class="container">
 			<div class="row">
-				<div id = "profile" class="col-md-6 col-lg-3 ftco-animate" th:each="b : ${userAll}">
+				<div id="profile" class="col-md-6 col-lg-3 ftco-animate"
+					th:each="b : ${userAll}">
 					<div class="staff">
 						<div class="text pt-3 px-3 pb-4 text-center">
-							<input id="userId" name="userId" type="hidden"
-								th:value="${b.userId}">
-							<input id="userNick" name="userNick" type="hidden"
-								th:value="${b.userNick}">
-							<h3 th:text="${b.userNick}"></h3>
-							<span th:text="${b.userBirthday}"></span>
+							<input id="user_id" name="user_id" type="hidden" th:value="${b.user_id}"> 
+							<input id="user_nick" name="user_nick" type="hidden" th:value="${b.user_nick}">
+							<h3 th:text="${b.user_nick}"></h3>
+							<span th:text="${b.user_birthday}"></span>
 							<div class="faded">
 								<p>I am an ambitious workaholic, but apart from that, pretty
 									simple person.</p>
@@ -84,9 +79,7 @@
 				</div>
 			</div>
 		</div>
-	</section>
-	<!-- Modal -->
-	<div id="profileModal" class="hidden" ></div>
+	</section>	
 	<nav aria-label="Page navigation example">
 		<div class="pagination d-flex justify-content-center">
 			<span class="page-item" th:if="${page > 1}"> <a
@@ -100,8 +93,6 @@
 			</span>
 		</div>
 	</nav>
-
-
 	<div th:replace="/footer :: footer"></div>
 	<!-- loader -->
 	<div id="ftco-loader" class="show fullscreen">

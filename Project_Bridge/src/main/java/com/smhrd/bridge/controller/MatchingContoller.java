@@ -18,7 +18,7 @@ public class MatchingContoller {
 
 	@GetMapping("/matchingPage") 
 	public String matchingPage(Model model, @RequestParam(defaultValue = "1") int page) { 
-	int pageSize = 8; 
+	int pageSize = 4; 
 	// 한 페이지에 표시할 항목 수 
 	List<UserInfo> userAll = service.matchingPage(); 
 	int totalRecipes = userAll.size(); 

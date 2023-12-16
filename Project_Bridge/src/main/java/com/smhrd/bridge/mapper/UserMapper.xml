@@ -7,11 +7,11 @@
 		parameterType="com.smhrd.bridge.entity.UserInfo">
 		insert into userinfo (user_id,
 		user_pw, user_address,
-		user_birthday, user_name, user_nick)
+		user_birthday, user_name, user_nick, join_date)
 		values
 		(#{user_id}, #{user_pw},
 		#{user_address}, #{user_birthday}, #{user_name},
-		#{user_nick})
+		#{user_nick}, now())
 	</insert>
 
 	<!-- 로그인 -->

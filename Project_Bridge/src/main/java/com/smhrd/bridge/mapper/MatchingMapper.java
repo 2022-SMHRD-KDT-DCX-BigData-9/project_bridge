@@ -10,4 +10,5 @@ import com.smhrd.bridge.entity.UserSong;
 @Mapper
 public interface MatchingMapper {
 	public List<UserInfo> matchingPage();
+	public List<UserSong> matchingProfile(String user_id);
 }
