@@ -14,5 +14,5 @@ public class UserLikeList {
 	private long idx;
 	private String user_id;
 	private int song_num;
-	
+	private int rating;
 }

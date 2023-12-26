@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-
 <link rel="stylesheet" type="text/css" href="css/login.css">
-
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 	<div id="container" class="container">
@@ -32,9 +32,16 @@
 								<i class='bx bxs-user'></i> <input type="text"
 									placeholder="Nickname" name="user_nick">
 							</div>
+							<input type="radio" name="user_gender" value="0">남 <input
+								type="radio" name="user_gender" value="1">여
+
 							<div class="input-group">
 								<i class='bx bxs-user'></i> <input type="date"
 									placeholder="Birthday" name="user_birthday">
+							</div>
+							<div class="input-group">
+								<i class='bx bxs-user'></i> <input type="text"
+									placeholder="좋아하는 가수" name="user_fav">
 							</div>
 							<div class="input-group">
 								<i class='bx bxs-user'></i> <input type="text"
@@ -44,11 +51,14 @@
 							</div>
 							<div id="map"
 								style="width: 300px; height: 300px; margin-top: 10px; display: none"></div>
-
+							<div class="input-group">
+								<i class='bx bxs-user'></i>
+								<textarea placeholder="한줄 소개" name="user_intro"></textarea>
+							</div>
 							<button type="submit">Sign up</button>
 							<p>
-								<span> Already have an account? </span> <b onclick="toggle()"
-									class="pointer"> Sign in here </b>
+								<span> 이미 회원이신가요? </span> <b onclick="toggle()"
+									id="pointer_login" class="pointer"> 로그인 </b>
 							</p>
 						</form>
 					</div>
@@ -60,7 +70,7 @@
 			<div class="col align-items-center flex-col sign-in">
 				<div class="form-wrapper align-items-center">
 					<form method="post" action="user/login">
-						<div class="form sign-in">
+						<div class="form sign-in ">
 							<div class="input-group">
 								<i class='bx bxs-user'></i> <input type="email"
 									placeholder="Email" name="user_id">
@@ -70,12 +80,10 @@
 									placeholder="Password" name="user_pw">
 							</div>
 							<button>Sign in</button>
+							<p></p>
 							<p>
-								<b> Forgot password? </b>
-							</p>
-							<p>
-								<span> Don't have an account? </span> <b onclick="toggle()"
-									class="pointer"> Sign up here </b>
+								<span> 아직 회원이 아니신가요? </span> <b onclick="toggle()"
+									id="pointer_register" class="pointer"> 회원가입 </b>
 							</p>
 					</form>
 				</div>
@@ -86,11 +94,22 @@
 	</div>
 	<!-- END FORM SECTION -->
 	<!-- CONTENT SECTION -->
+
 	<div class="row content-row">
 		<!-- SIGN IN CONTENT -->
 		<div class="col align-items-center flex-col">
-			<div class="text sign-in">
-				<h2>Welcome</h2>
+			<div id="bounce" class="text sign-in">
+				<div style="position: relative;">
+					<div class="container-barnav- ftco-animate"
+						style="position: absolute; left: 330px">
+						<div class="bar-bar-nav ftco-animate "></div>
+					</div>
+					<h2>
+						<i class="fa-solid fa-microphone-lines"></i> Bridge
+					</h2>
+					<h4 class="bounce">노래를 평가하고, 직접 부른 노래를 업로드하여 취향이 맞는 노래방 친구를
+						찾아보세요</h4>
+				</div>
 
 			</div>
 			<div class="img sign-in"></div>
@@ -108,7 +127,11 @@
 	</div>
 	<!-- END CONTENT SECTION -->
 	</div>
-
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+		crossorigin="anonymous"></script>
+	<script src="js/navbar-move-login.js"></script>
 	<script type="text/javascript" src="js/login.js"></script>
 
 	<!-- 카카오맵 API -->
@@ -117,6 +140,19 @@
 	<!-- 우편번호 받는 API -->
 	<script
 		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a0080ec850b9ee7cb65ff959024ac67d&libraries=services"></script>
+	<script>
+		const pointer_register = document.querySelector("#pointer_register");
+		pointer_register.addEventListener("click", () =>{
+	    	const bounce = document.querySelector("#bounce");
+	    	bounce.classList.add("hidden");
+		})
+		const pointer_login = document.querySelector("#pointer_login");
+		pointer_login.addEventListener("click", () =>{
+	    	const bounce = document.querySelector("#bounce");
+			console.log(bounce);
+	    	bounce.classList.remove("hidden");
+		})
+	</script>
 	<script>
 		var mapContainer = document.getElementById('map'), // 지도를 표시할 div   
 		mapOption = {
@@ -167,5 +203,6 @@
 			}).open();
 		}
 	</script>
+	<script src="https://kit.fontawesome.com/8fba072206.js"></script>
 </body>
 </html>

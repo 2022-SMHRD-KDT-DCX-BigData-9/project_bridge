@@ -21,6 +21,8 @@ public class UserInfo {
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate join_date;
 	private String user_address;
-	private String one_line;
-	private String gender;
+	private int user_gender;
+	private String user_intro;
+	private String user_fav;
+	private Double distance;
 }

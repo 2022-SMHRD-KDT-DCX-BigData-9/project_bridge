@@ -34,6 +34,9 @@
   --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
 
+
+
+
 *,
 *::before,
 *::after {
@@ -1587,7 +1590,8 @@ pre {
   .table-responsive > .table-bordered {
     border: 0; }
 
-.form-control {
+/* 1609번쯤 */
+.form-control { 
   display: block;
   width: 100%;
   height: calc(2.25rem + 2px);
@@ -1596,7 +1600,7 @@ pre {
   font-weight: 400;
   line-height: 1.5;
   color: #495057;
-  background-color: #fff;
+  background-color: var(--gray-2);
   background-clip: padding-box;
   border: 1px solid #ced4da;
   border-radius: 0.25rem;
@@ -1604,7 +1608,9 @@ pre {
   transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
   -o-transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out; }
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+}
+
   @media screen and (prefers-reduced-motion: reduce) {
     .form-control {
       -webkit-transition: none;
@@ -1649,8 +1655,11 @@ select.form-control:focus::-ms-value {
   padding-top: calc(0.375rem + 1px);
   padding-bottom: calc(0.375rem + 1px);
   margin-bottom: 0;
-  font-size: inherit;
-  line-height: 1.5; }
+  font-size: 17px;
+  text-align: center;
+  line-height: 1.5;
+}
+
 
 .col-form-label-lg {
   padding-top: calc(0.5rem + 1px);
@@ -3477,9 +3486,6 @@ input[type="button"].btn-block {
   font-size: 1.25rem;
   line-height: inherit;
   white-space: nowrap; 
-  
-
-      
   }
   
   
@@ -7835,9 +7841,7 @@ button.bg-dark:focus {
     text-align: right !important; }
   .text-xl-center {
     text-align: center !important; } 
-  .hero-wrap {
-    background-position: center bottom !important;
-  }
+
   }
 
 .text-lowercase {
@@ -8102,17 +8106,15 @@ h1, h2, h3, h4, h5,
       padding-bottom: 10px; } }
       /* 네브바목록 */
   .ftco-navbar-light .navbar-nav > .nav-item > .nav-link {
-    font-size: 14px;
+    font-size: 18px;
     padding-top: 2.3rem;
     padding-bottom: 2.3rem;
     padding-left: 18px;
     padding-right: 18px;
-    font-weight: 800;
-      
+    font-weight: 900;     
   background: linear-gradient(to bottom, #6164c4, #36b2cd); /* 그라데이션 색상 */
   -webkit-background-clip: text; /* WebKit 브라우저 지원 */
   color: transparent; /* 텍스트를 투명하게 만듭니다. */
-
     position: relative;
     text-transform: uppercase;
     opacity: 1 !important; }
@@ -8131,7 +8133,8 @@ h1, h2, h3, h4, h5,
       -webkit-transition: all 0.1s ease-in-out 0s;
       -o-transition: all 0.1s ease-in-out 0s;
       transition: all 0.1s ease-in-out 0s;
-      z-index: -1; }
+      z-index: -1; 
+      }
       
       /* 네브바호버 */
     .ftco-navbar-light .navbar-nav > .nav-item > .nav-link:hover {
@@ -8264,6 +8267,8 @@ background-size: 200% 200%; /* 그라데이션 크기를 확대 */
   margin-top: 5%;
   margin-left: 150px;
 }
+
+/* 글자그라데이션 */
 .navbar-brand {
 	font-weight: bold !important;
       background: linear-gradient(to bottom, #6164c4, #36b2cd) !important; /* 그라데이션 색상 */
@@ -8272,8 +8277,15 @@ background-size: 200% 200%; /* 그라데이션 크기를 확대 */
       
 }
 
+.fon_gra {
+	font-weight: bold !important;
+      background: linear-gradient(to bottom, #6164c4, #36b2cd) !important; /* 그라데이션 색상 */
+      -webkit-background-clip: text !important; /* WebKit 브라우저 지원 */
+      color: transparent !important; /* 텍스트를 투명하게 만듭니다. */
+}
+
 /* 추가   html에도 hero-wrap3 */
-.hero-wrap3 {
+/* .hero-wrap3 {
   
   margin-bottom: 20rem;
   border-radius: 10px;
@@ -8288,7 +8300,7 @@ background-size: 200% 200%; /* 그라데이션 크기를 확대 */
       right 0px top 50%,
       center bottom;
   background-repeat: no-repeat;
-}
+} */
 
 .hero-wrap4 {
 
@@ -8300,7 +8312,7 @@ background-size: 200% 200%; /* 그라데이션 크기를 확대 */
       url(../images/bg-circle.png),
       url(../images/bg-triangle.png),
       url(../images/bg-top.png),
-      linear-gradient(to bottom, #6164c4, #36b2cd);
+      linear-gradient(to bottom, #8490e8, #66c7de);
   background-position:
       left 0px bottom 0px,
       right 0px top 50%,
@@ -8320,20 +8332,20 @@ background-size: 200% 200%; /* 그라데이션 크기를 확대 */
   padding-top: 10em;
 }
 
-      .hero-wrap {
+.hero-wrap {
   
   margin: auto;
   width: 89%;
   height: 100%;
-  position: inherit;
-  background-size: auto;
+  /* position: inherit; */
+  /* background-size: auto; */
   background-repeat: no-repeat;
-  background-position: center bottom; 
+  /* background-position: center bottom;  */
   position: relative; }
-  @media (max-width: 1199.98px) {
+  /* @media (max-width: 1199.98px) {
     .hero-wrap {
       background-position: center bottom !important; } }
-      /* 추가 */
+      추가 */
   .hero-wrap .overlay {
     position: absolute;
     top: 0;
@@ -8344,19 +8356,20 @@ background-size: 200% 200%; /* 그라데이션 크기를 확대 */
     opacity: .1;
     background: #fff; }
   .hero-wrap.hero-wrap-2 {
-    height: 200px; }
+    height: 150px; }
     .hero-wrap.hero-wrap-2 .overlay {
-      opacity: .5;
-      background: #207dff;
-      background: -moz-linear-gradient(45deg, #207dff 0%, #00bd55 100%);
-      background: -webkit-gradient(left bottom, right top, color-stop(0%, #207dff), color-stop(100%, #00bd55));
-      background: -webkit-linear-gradient(45deg, #207dff 0%, #00bd55 100%);
-      background: -o-linear-gradient(45deg, #207dff 0%, #00bd55 100%);
-      background: -ms-linear-gradient(45deg, #207dff 0%, #00bd55 100%);
-      background: linear-gradient(45deg, #207dff 0%, #00bd55 100%);
+    
+      opacity: .9;
+      background: -moz-linear-gradient(to bottom, #6164c4, #36b2cd);
+      background: -webkit-gradient(left bottom, right top, color-stop(0%, #6164c4), color-stop(100%, #36b2cd));
+      background: -webkit-linear-gradient(to bottom, #6164c4, #36b2cd);
+      background: -o-linear-gradient(to bottom, #6164c4, #36b2cd);
+      background: -ms-linear-gradient(to bottom, #6164c4, #36b2cd);
+      background: linear-gradient(to bottom, #6164c4, #36b2cd);
+      
       filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#207dff', endColorstr='#00bd55', GradientType=1 ); }
     .hero-wrap.hero-wrap-2 .slider-text {
-      height: 200px; }
+      height: 150px; }
       .hero-wrap.hero-wrap-2 .slider-text h1 {
         font-weight: 400;
         font-size: 40px; }
@@ -8366,9 +8379,9 @@ background-size: 200% 200%; /* 그라데이션 크기를 확대 */
     font-family: "Montserrat", Arial, sans-serif;
     font-size: 60px;
     font-weight: 800; }
-    @media (max-width: 991.98px) {
+/*     @media (max-width: 991.98px) {
       .hero-wrap .slider-text h1 {
-        font-size: 40px; } }
+        font-size: 40px; } } */
 
 
         @media (max-width: 991.98px) {
@@ -8518,13 +8531,20 @@ background-size: 200% 200%; /* 그라데이션 크기를 확대 */
   font-weight: 700; }
   .btn:hover, .btn:active, .btn:focus {
     outline: none; }
-  .btn.btn-primary {
-    background: linear-gradient(to bottom, #FAB1BD, #F63B73);
-    border: 1px solid #FAB1BD;
-    color: #fff; }
+.btn.btn-primary {
+  cursor: pointer;
+  border-radius: .5rem;
+  border: none;
+  background: #ff6b81;
+  color: var(--white);
+  outline: none;
+}
+
     .btn.btn-primary:hover {
-      border: 1px solid #fff;
-      background: transparent;
+
+      border: 1px solid #FAB1BD;
+      background: linear-gradient(to top, #FAB1BD, #F63B73);
+
       color: #fff; }
     .btn.btn-primary.btn-outline-primary {
       border: 1px solid #00bd56;
@@ -8759,17 +8779,13 @@ background-size: 200% 200%; /* 그라데이션 크기를 확대 */
     opacity: 1; }
 
 .staff {
-  overflow: hidden;
-  border-radius: 4px;
-  margin-bottom: 30px;
-  -webkit-box-shadow: 0px 24px 48px -13px rgba(0, 0, 0, 0.05);
-  -moz-box-shadow: 0px 24px 48px -13px rgba(0, 0, 0, 0.05);
-  box-shadow: 0px 24px 48px -13px rgba(0, 0, 0, 0.05);
-  -moz-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
-  -webkit-transition: all 0.3s ease;
-  -ms-transition: all 0.3s ease;
-  transition: all 0.3s ease; }
+    background: rgb(91, 173, 255);
+    overflow: hidden;
+    border-radius: 32px;
+    margin-bottom: 30px;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.3) 0px 6px 15px;
+    -moz-box-shadow: rgba(0, 0, 0, 0.3) 0px 6px 15px;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 6px 15px; }
   .staff .img-wrap {
     height: 300px; }
   .staff .img {
@@ -8852,13 +8868,13 @@ background-size: 200% 200%; /* 그라데이션 크기를 확대 */
       top: -60px; }
     .staff:hover .img, .staff:focus .img {
       margin-top: -10px; }
-    .staff:hover .text, .staff:focus .text {
+    /* .staff:hover .text, .staff:focus .text {
       background: #00bd56;
-      color: rgba(255, 255, 255, 0.8); }
-      .staff:hover .text h3, .staff:focus .text h3 {
+      color: rgba(255, 255, 255, 0.8); } */
+/*       .staff:hover .text h3, .staff:focus .text h3 {
         color: #fff; }
       .staff:hover .text .position, .staff:focus .text .position {
-        color: rgba(255, 255, 255, 0.4); }
+        color: rgba(255, 255, 255, 0.4); } */
 
 .ftco-social {
   padding: 0; }
@@ -8905,15 +8921,15 @@ background-size: 200% 200%; /* 그라데이션 크기를 확대 */
       margin-bottom: 20px; } }
 
 .form-control {
-  height: 52px !important;
-  background: #fff !important;
-  color: #000000 !important;
+  height: 52px;
+  background: #fff;
+  color: #000000;
   font-size: 14px;
-  border-radius: 5px;
+
   -webkit-box-shadow: none !important;
-  box-shadow: none !important; }
-  .form-control:focus, .form-control:active {
-    border-color: #000000; }
+  box-shadow: none !important;
+}
+
 
 textarea.form-control {
   height: inherit !important; }
@@ -8934,7 +8950,7 @@ textarea.form-control {
   font-size: 24px; }
 
 .ftco-section {
-  padding: 7em 0;
+
   position: relative; }
   @media (max-width: 767.98px) {
     .ftco-section {
@@ -9013,7 +9029,7 @@ textarea.form-control {
     letter-spacing: 1px;
     width: 60%;
     margin: 0 auto; }
-    .block-7 .btn-primary:hover, .block-7 .btn-primary:focus {
+.block-7 .btn-primary:hover, .block-7 .btn-primary:focus {
       background: #00bd56 !important;
       color: #fff; }
   .block-7:hover, .block-7:focus {
@@ -9079,14 +9095,19 @@ textarea.form-control {
     display: block !important; }
 
 .appointment .form-control {
-  border: transparent;
-  background: white !important;
   color: rgba(0, 0, 0, 0.8) !important;
-  font-size: 14px;
+  font-size: 17px;
   font-weight: 600;
-  border-radius: 5px;
+  height: 60px;
+  width: 400px;
+  background-color: #EFEFEF;
+  border-radius: .5rem;
+  border: 0.125rem solid var(--white);
+  outline: none;
   -webkit-box-shadow: none !important;
-  box-shadow: none !important; }
+  box-shadow: none !important;
+}
+
   .appointment .form-control::-webkit-input-placeholder {
     /* Chrome/Opera/Safari */
     color: rgba(0, 0, 0, 0.5); }
@@ -9624,12 +9645,26 @@ textarea.form-control {
       color: #fff; }
   .dbox .text {
     width: 100%; }
+    
+.span_label {
+	  text-transform: uppercase;
+  font-size: 15px;
+  font-weight: 600;
+  font-weight: bold;
+  background: linear-gradient(to bottom, #6164c4, #36b2cd);
+  -webkit-background-clip: text; /* WebKit 브라우저 지원 */
+  color: transparent;
+}
 
 .contactForm .label {
-  color: #00bd56 !important;
+ 
   text-transform: uppercase;
-  font-size: 12px;
-  font-weight: 600; }
+  font-size: 15px;
+  font-weight: 600;
+  font-weight: bold !important;
+  background: linear-gradient(to bottom, #6164c4, #36b2cd) !important; /* 그라데이션 색상 */
+  -webkit-background-clip: text !important; /* WebKit 브라우저 지원 */
+  color: transparent !important; /* 텍스트를 투명하게 만듭니다. */ }
 
 .contactForm .form-control {
   border: none;
@@ -9780,7 +9815,7 @@ textarea.form-control {
   transform: translateY(-50%); }
 
 .sidebar-box {
-  margin-bottom: 40px;
+  margin-bottom: 20px;
   font-size: 15px;
   width: 100%;
   float: left;
@@ -9936,6 +9971,97 @@ textarea.form-control {
     50% {left:80px; bottom: 70px;}
     100% {left:50px; bottom: 50px;}
 }
+
+   /* 메인페이지 음표 */
+.note {
+	    position: absolute;
+    margin-top: -25px;
+    margin-left: 120px;
+    
+}    
+    
+.note2 {
+	    position: absolute;
+	top:50px;
+	margin-left: 9rem;
+}
+ 
+.note3 {
+		    position: absolute;
+	top:170px;
+	margin-left: 8.5rem;
+}
+
+.note4 {
+	 position: absolute;
+    top: 210px;
+    margin-left: 110px;
+
+}
+	/* 나머지페이지 음표 */
+.note5 {
+	    position: absolute;
+    margin-top: -35px;
+    margin-left: -29px;
+    
+}    
+    
+.note6 {
+	    position: absolute;
+	margin-top:-10px;
+	margin-left: -5px;
+}
+ 
+.note7 {
+		    position: absolute;
+	top:105px;
+	margin-left: -15px;
+}
+
+.note8 {
+	 position: absolute;
+    top: 145px;
+    margin-left: -40px;	
+}
+
+.overlay {
+	border-radius: 10px;
+	background:
+	      url(../images/bg-circle.png),
+      url(../images/bg-triangle.png),
+      url(../images/bg-bottom.png),
+      linear-gradient(to bottom, #6164c4, #36b2cd);
+  background-position:
+      left 0px top 0px,
+      right 0px top 50%,
+      center bottom;
+  background-repeat: no-repeat;
+}
+
+
+.image_figure2 {
+	  max-width: 100%;
+  height: auto;
+  margin-top: 5%;
+  /* margin-left: 150px; */
+	
+}
+
+.mypage_label {
+	font-size : 22px !important;
+}
+.form-group2 {
+      display: flex;
+      justify-content: center; /* 수평 가운데 정렬 */
+      align-items: center; /* 수직 가운데 정렬 */
+      }
+.input-wrap2 {
+	      display: flex;
+      justify-content: center; /* 수평 가운데 정렬 */
+      align-items: center; /* 수직 가운데 정렬 */
+      
+}
+
     
 .note {
 	    position: absolute;
@@ -9967,15 +10093,102 @@ textarea.form-control {
 .hidden {
 	display: none;
 }
+
+.profilemodal span{
+	color: white;
+}
+
+.profilemodal p{
+	font-size: 25px;
+	color: white;
+	text-align: center;
+}
+
+.profilesong .text {
+	padding-bottom: 20px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
 .profilemodal {
-	overflow : auto;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+	align-text: center;
+	border-radius: 1.5rem;
 	position: absolute;
-	top: 40%;
+	top: 430px;
 	left: 25%;
-	width: 500px;
+	width: 700px;
 	height: 500px;
-	background-color: rgba(0, 150, 150);
-	z-index : 1;
+	background-color:  rgb(238, 243, 247);
+	/* background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%); */
+/* background:hsla(279, 33%, 48%, 1); */
+/* 	background: url(../images/background1.jpg);
+	background-repeat: no-repeat;
+	background-size: cover; */
+	z-index : 3;
+	/* -webkit-box-flex: 0; */
+	/* max-width: 66.66667%; */
+}
+
+.profilemodal .container{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+.profilemodal .col-md-6 {
+	margin-top: 40px; 
+	text-align: center;
+	color: black;
+}
+
+.profilemodal .profile {
+	position : relative;
+	width: 170px;
+	height: 170px;
+	border-radius: 50%;
+/* 	background-image : url(../images/eximage.png); */
+ 	background: linear-gradient(#2f45de, #a2edff);
+	margin: auto;
+	box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);	
+	background-size: cover;
+}
+
+.profilemodal .profile .cdCenter{
+	top : 67.5px;
+	left : 67.5px;
+	position : absolute;
+	width: 35px;
+	height: 35px;
+	border-radius: 50%;
+	background-color : white; 
+	z-index : 5;
+}
+/* #e2ebf0; */
+.profile-title {
+	width: 100px;
+}
+
+.profile-container {
+	display: flex;
+	flex-direction: row;
+	margin-bottom: 20px !important;
+}
+
+.profile-content {
+	margin-left: 20px;
+}
+
+.profile-list-item {
+	list-style: none;
+	margin-bottom: 30px;
+}
+
+.profile-list-title {
+	text-align: center;
+	margin-top: 40px;
+	margin-bottom: 40px;
 }
 
 .profilemodal_body {
@@ -9990,3 +10203,316 @@ textarea.form-control {
 	border-radius: 10px;
 	box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
 } 
+
+/* 매칭페이지 프로필카드 보기 효과*/
+.staff > .text {
+	background: rgb(91, 173, 255);	
+	opacity: 0.9;
+	margin: 10px 10px;
+}
+
+.staff p, .staff span, .staff h3 {
+	color: #fff !important;
+}
+
+
+
+
+
+/* 마이페이지 프로필 카드 */
+.profile_body {
+   top: 40%;
+   left: 25%;
+   width: 500px;
+   height: 500px;
+   padding: 10px;
+   border: 1px solid #ccc;
+   padding: 5px;
+   border-radius: 10%;
+}
+
+.profilesong {
+   padding: 10px;
+   max-height: 300px;
+   overflow-y: auto;
+   text-align: center;
+}
+
+
+/* 취향분석페이지의 글에 그라데이션 */
+.preference-container h3,
+.preference-container h2,
+.preference-container a{
+	font-weight: bold !important;
+      background: linear-gradient(to bottom, #6164c4, #36b2cd) !important; /* 그라데이션 색상 */
+      -webkit-background-clip: text !important; /* WebKit 브라우저 지원 */
+      color: transparent !important; /* 텍스트를 투명하게 만듭니다. */
+	
+}
+
+/* 취향분석페이지의 노래목록 글에 그라데이션 */
+.song-container > h4 {
+	font-weight: bold !important;
+      background: linear-gradient(to bottom, #6164c4, #36b2cd) !important; /* 그라데이션 색상 */
+      -webkit-background-clip: text !important; /* WebKit 브라우저 지원 */
+      color: transparent !important; /* 텍스트를 투명하게 만듭니다. */
+}
+
+/* 취향분석페이지의 노래목록 컨테이너*/
+#existingSongsContainer{
+    padding: 20px;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    }
+
+/* 모달창 안에 글자그라데이션 */
+.profile-container .profile-title,
+.profile-container .profile-content,
+.col-md-6 .profile-list-title,
+.col-md-6 .profile-list-item{
+font-weight: bold !important;
+      background: linear-gradient(to bottom, #6164c4, #36b2cd) !important; /* 그라데이션 색상 */
+      -webkit-background-clip: text !important; /* WebKit 브라우저 지원 */
+      color: transparent !important; /* 텍스트를 투명하게 만듭니다. */
+}
+
+
+
+
+/* 마이페이지 프로필카드 미리보기 */
+.profilemodal2 span{
+	color: white;
+}
+
+.profilemodal2 p{
+	font-size: 25px;
+	color: white;
+	text-align: center;
+}
+
+
+.profilemodal2 {
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+	align-text: center;
+	border-radius: 1.5rem;
+	width: 700px;
+	height: 500px;
+	background-color:  rgb(238, 243, 247);
+	z-index : 3;
+
+}
+
+.profilemodal2 .container{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+.profilemodal2 .col-md-6 {
+	margin-top: 40px; 
+	text-align: center;
+	color: black;
+}
+
+.profilemodal2 .profile {	
+	position : relative;
+	width: 170px;
+	height: 170px;
+	border-radius: 50%;
+ 	background: linear-gradient(#2f45de, #a2edff);
+	margin: auto;
+	box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);	
+	background-size: cover;
+}
+
+.profilemodal2 .profile .cdCenter{
+	top : 67.5px;
+	left : 67.5px;
+	position : absolute;
+	width: 35px;
+	height: 35px;
+	border-radius: 50%;
+	background-color : white; 
+	z-index : 5;
+}
+
+/* navbar 바로 밑 구간 얇은 선으로 바꾼 디자인 코드들 */
+.overlay-new {
+   margin-top: 120px !important;
+    width: 80% !important;
+    height: 10px !important;
+    margin-left: 120px !important;
+}
+
+.page-name {
+   font-weight: bold !important;
+    background: linear-gradient(to bottom, #6164c4, #36b2cd) !important;
+    -webkit-background-clip: text !important;
+    color: transparent !important;
+    margin-left: 20px;
+}
+
+.row2 {
+   width: 67%;
+   margin-left: 70px; 
+   justify-content: normal !important;
+}
+
+/* 움직이는 바 */
+.container-bar- {
+   margin-bottom: 31px;
+    height: 100px;
+    display: flex;
+    align-items: flex-end;
+    opacity: .75;
+}
+/* nav에 움직이는 바 컨테이너 */
+.container-barnav- {
+   display: flex;
+   align-items: center;
+    margin-left: -160px;
+    opacity: 0.3 !important;
+}
+
+.bar-bar {
+    
+    min-height: 10px;
+    margin-right: 1px;
+    box-shadow: 0 10px 15px #000;
+}
+
+/* 별점 */
+@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+.rate { display: inline-block;border: 0;margin-right: 15px;}
+.rate > input {display: none;}
+.rate > label {float: right;color: #ddd}
+.rate > label:before {display: inline-block;font-size: 1rem;padding: .3rem .2rem;margin: 0;cursor: pointer;font-family: FontAwesome;content: "\f005 ";}
+.rate .half:before {content: "\f089 "; position: absolute;padding-right: 0;}
+.rate input:checked ~ label, 
+.rate label:hover,.rate label:hover ~ label { color: #f73c32 !important;  } 
+.rate input:checked + .rate label:hover,
+.rate input input:checked ~ label:hover,
+.rate input:checked ~ .rate label:hover ~ label,  
+.rate label:hover ~ input:checked ~ label { color: #f73c32 !important;  } 
+
+.move-gradient {
+   border-radius: 20px;
+  background-size: 400% 400% !important;
+    animation: gradient1 10s ease infinite;
+    background: linear-gradient(90deg, hsla(187, 83%, 65%, 1) 0%, hsla(301, 84%, 81%, 1) 50%,  hsla(169, 76%, 48%, 1));
+}
+
+@keyframes gradient1 {
+    0% {
+        background-position: 15% 15%;
+    }
+    25% {
+        background-position: 85% 85%;
+    }
+    50% {
+        background-position: 15% 85%;
+    }
+    80% {
+        background-position: 85% 15%;
+    }
+    100% {
+        background-position: 15% 15%;
+    }
+}
+
+
+#existingSongsContainer::-webkit-scrollbar {
+    width: 10px;  /* 스크롤바의 너비 */
+}
+
+#existingSongsContainer::-webkit-scrollbar-thumb {
+    height: 30%; /* 스크롤바의 길이 */
+    background: #45aaf2; /* 스크롤바의 색상 */
+    border-radius: 10px;
+}
+
+#existingSongsContainer::-webkit-scrollbar-track {
+    background: rgba(33, 122, 244, .1);  /*스크롤바 뒷 배경 색상*/
+}
+
+.song-container > h5 > label {
+   margin-left: 5px;
+}
+
+
+.upload-form {
+  padding: 10px;
+  background-color: var(--white);
+  border-radius: 1.5rem;
+  width: auto;
+  height: auto;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+
+.file-wrap input[type="file"] {
+  position: absolute;
+  width: 0;
+  height: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+}
+
+
+.file-wrap label {
+  display: inline-block;
+  padding: 10px 20px;
+  color: #999;
+  background-color: #fdfdfd;
+  cursor: pointer;
+  border: 1px solid #ebebeb;
+  border-radius: 5px;
+}
+
+
+/* 파일명 출력 */
+.file-wrap .upload-name {
+  display: inline-block;
+  height: 50px;
+  width: 315px;
+  font-size: 17px;
+  padding: 0 10px;
+  vertical-align: middle;
+  background-color: #EFEFEF;
+  border: 0.125rem solid var(--white);
+  border-radius: .5rem;
+  outline: none;
+}
+
+#uploadTitle {
+   text-align: center; 
+   margin-top: 50px;
+}
+#uploadTitle2 {
+   text-align: center;
+   margin-top: -15px;
+   margin-bottom: 20px;
+}
+
+.cdRotate {animation: rotate_image 6s linear infinite;transform-origin: 50% 50%;}
+
+@keyframes rotate_image{
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+@keyframes rotate_image{
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}

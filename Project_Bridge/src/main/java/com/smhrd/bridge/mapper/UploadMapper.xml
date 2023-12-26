@@ -3,8 +3,11 @@
 <mapper namespace="com.smhrd.bridge.mapper.UploadMapper">
 
 	<insert id="uploadMusic" parameterType="com.smhrd.bridge.entity.UserSong">
-		insert into usersong (user_id, user_singer, user_song_name, song_file, noise_cancel, created_at)
-		values (#{user_id} #{user_singer}, #{user_song_name}, 0, #{noise_cancel}, now());
+		insert into usersong (user_id, user_singer, user_song_name, song_file, noise_cancel, created_at,
+		 tempo, wave, chroma_stft_mean, rmse_mean, spec_cent_mean, spec_bw_mean, rolloff_mean, zcr_mean, harmony_mean, mfcc_mean)
+		values (#{user_id}, #{user_singer}, #{user_song_name}, #{song_file}, #{noise_cancel}, now(),
+		 #{tempo}, #{wave}, #{chroma_stft_mean}, #{rmse_mean}, #{spec_cent_mean}, #{spec_bw_mean}, #{rolloff_mean},
+		 #{zcr_mean}, #{harmony_mean}, #{mfcc_mean});
 	</insert>
 	<select id="mypage" parameterType="com.smhrd.bridge.entity.UserInfo" resultType="com.smhrd.bridge.entity.UserSong">
 		select * from usersong where user_id = #{user_id};	

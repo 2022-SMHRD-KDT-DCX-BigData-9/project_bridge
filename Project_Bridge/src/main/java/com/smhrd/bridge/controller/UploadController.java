@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.smhrd.bridge.entity.UserInfo;
 import com.smhrd.bridge.entity.UserSong;
 import com.smhrd.bridge.service.UploadService;
@@ -28,7 +29,7 @@ public class UploadController {
 	UploadService service;
 	
 	@PostMapping("/uploadmusic/save")
-	public String uploadMusic(UserSong usersong, @RequestPart("music") MultipartFile music) {
+	public String uploadMusic(UserSong usersong, @RequestPart("music") MultipartFile music) throws JsonProcessingException {
 		String newFileName = UUID.randomUUID().toString() + music.getOriginalFilename();
 		try {
 			music.transferTo(new File(newFileName));
@@ -45,14 +46,14 @@ public class UploadController {
 		UserInfo member = (UserInfo) session.getAttribute("loginUser");
 		if (member != null) {
 			int pageSize = 3; // 한 페이지에 표시할 항목 수
-			List<UserSong> recipes = service.mypage(member);
-			int totalRecipes = recipes.size();
+			List<UserSong> songs = service.mypage(member);
+			int totalRecipes = songs.size();
 			int totalPages = (int) Math.ceil((double) totalRecipes / pageSize);
 			
 			int startIndex = (page - 1) * pageSize;
 	        int endIndex = Math.min(startIndex + pageSize, totalRecipes);
 	        
-	        List<UserSong> musicToDisplay = recipes.subList(startIndex, endIndex);
+	        List<UserSong> musicToDisplay = songs.subList(startIndex, endIndex);
 
 	        model.addAttribute("musics", musicToDisplay);
 	        model.addAttribute("page", page);
