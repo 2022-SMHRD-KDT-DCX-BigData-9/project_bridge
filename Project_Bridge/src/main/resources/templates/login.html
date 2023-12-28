@@ -18,26 +18,28 @@
 						<form method="post" action="user/register">
 							<div class="input-group">
 								<i class='bx bx-mail-send'></i> <input type="email"
-									placeholder="Email" name="user_id">
+									placeholder="이메일" name="user_id">
 							</div>
 							<div class="input-group">
 								<i class='bx bxs-lock-alt'></i> <input type="password"
-									placeholder="Password" name="user_pw">
+									placeholder="비밀번호" name="user_pw">
 							</div>
 							<div class="input-group">
-								<i class='bx bxs-user'></i> <input type="text"
-									placeholder="Username" name="user_name">
+								<i class='bx bxs-user'></i> <input type="text" placeholder="이름"
+									name="user_name">
 							</div>
 							<div class="input-group">
-								<i class='bx bxs-user'></i> <input type="text"
-									placeholder="Nickname" name="user_nick">
+								<i class='bx bxs-user'></i> <input type="text" placeholder="닉네임"
+									name="user_nick">
 							</div>
-							<input type="radio" name="user_gender" value="0">남 <input
-								type="radio" name="user_gender" value="1">여
-
+							<div class="input-group">
+								<input type="radio" name="user_gender" value="0" id="male"><label
+									for="male">남</label> <input type="radio" name="user_gender"
+									value="1" id="female"><label for="female">여</label>
+							</div>
 							<div class="input-group">
 								<i class='bx bxs-user'></i> <input type="date"
-									placeholder="Birthday" name="user_birthday">
+									placeholder="생년월일" name="user_birthday">
 							</div>
 							<div class="input-group">
 								<i class='bx bxs-user'></i> <input type="text"
@@ -45,17 +47,19 @@
 							</div>
 							<div class="input-group">
 								<i class='bx bxs-user'></i> <input type="text"
-									name="user_address" placeholder="Address" id="sample5_address"><input
-									type="button" onclick="sample5_execDaumPostcode()"
-									value="주소 검색">
+									name="user_address" placeholder="주소" id="sample5_address"
+									style="width: 325px"><input type="button"
+									onclick="sample5_execDaumPostcode()" value="검색"
+									style="width: 125px">
 							</div>
 							<div id="map"
 								style="width: 300px; height: 300px; margin-top: 10px; display: none"></div>
 							<div class="input-group">
 								<i class='bx bxs-user'></i>
-								<textarea placeholder="한줄 소개" name="user_intro"></textarea>
+								<textarea placeholder="한줄 소개" name="user_intro" rows="4"
+									cols="65"></textarea>
 							</div>
-							<button type="submit">Sign up</button>
+							<button type="submit">회원가입</button>
 							<p>
 								<span> 이미 회원이신가요? </span> <b onclick="toggle()"
 									id="pointer_login" class="pointer"> 로그인 </b>
@@ -72,14 +76,15 @@
 					<form method="post" action="user/login">
 						<div class="form sign-in ">
 							<div class="input-group">
-								<i class='bx bxs-user'></i> <input type="email"
-									placeholder="Email" name="user_id">
+								<br> <i class='bx bxs-user'></i> <input type="email"
+									placeholder="이메일" name="user_id">
 							</div>
 							<div class="input-group">
 								<i class='bx bxs-lock-alt'></i> <input type="password"
-									placeholder="Password" name="user_pw">
+									placeholder="비밀번호" name="user_pw">
 							</div>
-							<button>Sign in</button>
+							<br>
+							<button>로그인</button>
 							<p></p>
 							<p>
 								<span> 아직 회원이 아니신가요? </span> <b onclick="toggle()"
@@ -96,31 +101,40 @@
 	<!-- CONTENT SECTION -->
 
 	<div class="row content-row">
-		<!-- SIGN IN CONTENT -->
+		<!-- 로그인 -->
 		<div class="col align-items-center flex-col">
 			<div id="bounce" class="text sign-in">
 				<div style="position: relative;">
 					<div class="container-barnav- ftco-animate"
-						style="position: absolute; left: 330px">
+						style="position: absolute; left: 335px">
 						<div class="bar-bar-nav ftco-animate "></div>
 					</div>
 					<h2>
 						<i class="fa-solid fa-microphone-lines"></i> Bridge
 					</h2>
-					<h4 class="bounce">노래를 평가하고, 직접 부른 노래를 업로드하여 취향이 맞는 노래방 친구를
-						찾아보세요</h4>
+					<h4 class="bounce">노래를 평가하고, 직접 부른 노래를 업로드하여
+						취향이 맞는 노래방 친구를 찾아보세요</h4>
 				</div>
 
 			</div>
 			<div class="img sign-in"></div>
 		</div>
-		<!-- END SIGN IN CONTENT -->
-		<!-- SIGN UP CONTENT -->
+
+		<!-- 회원가입 -->
 		<div class="col align-items-center flex-col">
 			<div class="img sign-up"></div>
 			<div class="text sign-up">
-				<h2>Join with us</h2>
-
+				<div style="position: relative;">
+					<div class="container-barnav- ftco-animate"
+						style="position: absolute; left: 335px">
+						<div class="bar-bar-nav ftco-animate "></div>
+					</div>
+					<h2>
+						<i class="fa-solid fa-microphone-lines"></i> Bridge
+					</h2>
+					<h4 class="bounce">노래를 평가하고, 직접 부른 노래를 업로드하여
+						취향이 맞는 노래방 친구를 찾아보세요</h4>
+				</div>
 			</div>
 		</div>
 		<!-- END SIGN UP CONTENT -->
@@ -153,6 +167,7 @@
 	    	bounce.classList.remove("hidden");
 		})
 	</script>
+
 	<script>
 		var mapContainer = document.getElementById('map'), // 지도를 표시할 div   
 		mapOption = {

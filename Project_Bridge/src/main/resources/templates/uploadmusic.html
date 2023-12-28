@@ -57,8 +57,7 @@
 					<div class="col-md-12">
 						<div class="form-group">
 							<div class="input-wrap2">
-								<input type="hidden" name="user_id"
-									th:value="${session.loginUser.user_id}"> <label
+								 <label
 									for="userSinger"
 									class="col-sm-2 col-form-label fw-bolder label_color">가수명</label>
 								<input type="text" name="user_singer"
@@ -85,8 +84,8 @@
 									for="userSinger"
 									class="col-sm-2 col-form-label fw-bolder label_color">음원</label>
 								<div class="file-wrap">
-									<input type="file" id="file"> <input
-										class="upload-name" value="파일을 선택해주세요"><label for="file">파일선택</label>
+									<input type="file" id="file" name="music"> 
+									<input class="upload-name" value="파일을 선택해주세요"><label for="file">파일선택</label>
 								</div>
 							</div>
 						</div>

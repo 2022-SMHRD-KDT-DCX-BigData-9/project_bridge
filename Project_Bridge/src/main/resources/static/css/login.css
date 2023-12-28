@@ -376,17 +376,17 @@ body {
 /* 움직이는 바 */
 .container-bar- {
    margin-bottom: 31px;
-    height: 100px;
-    display: flex;
-    align-items: flex-end;
-    opacity: .75;
+   height: 100px;
+   display: flex;
+   align-items: flex-end;
+   opacity: .75;
 }
 /* nav에 움직이는 바 컨테이너 */
 .container-barnav- {
    display: flex;
    align-items: center;
-    margin-left: -160px;
-    opacity: 0.3 !important;
+   margin-left: -160px;
+   opacity: 0.3 !important;
 }
 
 .bar-bar {
@@ -398,6 +398,7 @@ body {
 .hidden {
 	display: none;
 }
+
 
 .form.sign-up::-webkit-scrollbar {
     width: 10px;  /* 스크롤바의 너비 */

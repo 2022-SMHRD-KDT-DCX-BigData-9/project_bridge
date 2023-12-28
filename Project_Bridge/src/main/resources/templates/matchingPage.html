@@ -63,17 +63,17 @@
 				<div style="display: flex; gap: 10px;">
 					<select name="sorted" class="form-select form-select-sm col-md-2"
 						aria-label="Small select example">
-						<option value="0" selected>정렬</option>
+						<option value="0" selected>취향순 / 거리순</option>
 						<option value="1">취향순</option>
 						<option value="2">거리순</option>
 					</select> <select name="gender" class="form-select form-select-sm col-md-2"
 						aria-label="Small select example">
-						<option selected>성별</option>
+						<option value="1000" selected>성별</option>
 						<option value="0">남성</option>
 						<option value="1">여성</option>
 					</select> <select name="age" class="form-select form-select-sm col-md-2"
 						aria-label="Small select example">
-						<option selected>연령</option>
+						<option value="1000" selected>연령</option>
 						<option value="10">10대</option>
 						<option value="20">20대</option>
 						<option value="30">30대</option>
@@ -87,8 +87,8 @@
 			</form>
 			<br>
 			<div style="display: flex; gap: 2px;">
-				<input type="text" class="form-control col-md-3"
-					name="search_address" placeholder="노래방과 가까운 친구을 찾아보세요"
+				<input type="text" class="form-control col-md-4"
+					name="search_address" placeholder="노래방 주소를 검색하여 가까운 친구을 찾아보세요"
 					id="search_address">
 				<div style="display: flex; gap: 5px">
 					<button id="chooseBtn" class="btn btn-secondary">지도 펼치기</button>
@@ -133,7 +133,28 @@
 							<h3 th:text="${b.user_nick}"></h3>
 							<span th:if="${b.user_gender == 0}">남성</span>
 							<span th:if="${b.user_gender == 1}">여성</span><br>
-							<span th:text="${b.user_birthday}"></span><br>
+							<span th:if="${b.user_birthday != null}"> <!-- 현재 날짜를 가져오기 -->
+								<script th:inline="javascript">
+						        // 생일 정보를 받아오기
+						        var userBirthday = [[${#temporals.format(b.user_birthday, 'yyyy-MM-dd')}]];
+						        
+						        // 생일 정보를 Date 객체로 변환
+						        var birthDate = new Date(userBirthday);
+						
+						        // 현재 날짜를 가져오기
+						        var currentDate = new Date();
+						
+						        // 만 나이 계산
+						        var age = currentDate.getFullYear() - birthDate.getFullYear();
+						
+						        if (currentDate.getMonth() < birthDate.getMonth() || 
+						            (currentDate.getMonth() === birthDate.getMonth() && currentDate.getDate() < birthDate.getDate())) {
+						            age--;
+						        }
+						
+						        document.write(age);
+						    </script>세
+							</span><br>
 							<span th:if="${b.distance != null}" th:text="${b.distance + 'km'}"></span>
 							<div class="faded">
 								<p th:text="${b.user_fav}"></p>
@@ -200,6 +221,7 @@
 
 	<script src="js/map_new.js"></script>
 	<script src="js/navbar-move-div.js"></script>
+    <!-- 현재 날짜를 가져오기 -->
 </body>
 </html>
 

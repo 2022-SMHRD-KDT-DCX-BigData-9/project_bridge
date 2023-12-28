@@ -28,9 +28,6 @@ public class UserSong {
 	private double chroma_stft_mean;
 	private double rmse_mean;
 	private double spec_cent_mean;
-	private double spec_bw_mean;
-	private double rolloff_mean;
-	private double zcr_mean;
 	private double harmony_mean;
 	private double mfcc_mean;
 }

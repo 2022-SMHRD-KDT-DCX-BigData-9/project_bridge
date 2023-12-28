@@ -82,14 +82,11 @@ public class MatchingService {
 		for (int i = 0; i < user_another.size(); i++) {
 			// list의 값들을 가져와서 코사인 유사도 분석.
 			double[] A = new double[] { user_cri.getTempo(), user_cri.getWave(), user_cri.getChroma_stft_mean(),
-					user_cri.getRmse_mean(), user_cri.getSpec_cent_mean(), user_cri.getSpec_bw_mean(),
-					user_cri.getRolloff_mean(), user_cri.getZcr_mean(), user_cri.getHarmony_mean(),
+					user_cri.getRmse_mean(), user_cri.getSpec_cent_mean(), user_cri.getHarmony_mean(),
 					user_cri.getMfcc_mean() };
 			double[] B = new double[] { user_another.get(i).getTempo(), user_another.get(i).getWave(),
 					user_another.get(i).getChroma_stft_mean(), user_another.get(i).getRmse_mean(),
-					user_another.get(i).getSpec_cent_mean(), user_another.get(i).getSpec_bw_mean(),
-					user_another.get(i).getRolloff_mean(), user_another.get(i).getZcr_mean(),
-					user_another.get(i).getHarmony_mean(), user_another.get(i).getMfcc_mean() };
+					user_another.get(i).getSpec_cent_mean(), user_another.get(i).getHarmony_mean(), user_another.get(i).getMfcc_mean() };
 			double result = cosain.CosineSimilarity(A, B);
 			sortMap.put(user_another.get(i), result);
 		}

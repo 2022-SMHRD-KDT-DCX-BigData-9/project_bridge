@@ -163,11 +163,18 @@
 									</div>
 								</div>
 							</div>
+							<div class="col-md-8">
+								<div class="form-group">
+									<label class="label label_color mypage_label" for="user_fav">좋아하는 가수</label>
+									<input type="text" class="form-control" name="user_fav"
+										id="user_fav" th:value="${session.loginUser.user_fav}">
+								</div>
+							</div>
 							<div class="col-md-12">
 								<div class="form-group">
-									<label class="label mypage_label" for="#">한 줄 소개</label>
-									<textarea name="message" class="form-control" id="message"
-										cols="30" rows="1" placeholder="Message"></textarea>
+									<label class="label mypage_label" for="user_intro">한 줄 소개</label>
+									<textarea name="user_intro" class="form-control" id="message"
+										cols="30" rows="1" th:value="${session.loginUser.user_intro}"></textarea>
 								</div>
 							</div>
 							<div class="col-md-12">

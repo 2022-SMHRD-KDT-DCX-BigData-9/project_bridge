@@ -109,7 +109,7 @@ public class MatchingContoller {
 		List<Map<String, Object>> allUser = service.allUser(user.getUser_id()); // 로그인 한 유저 제외 모든 유저의 user_id 추출	
 		List<UserInfo> sortedUserInfoList = new ArrayList<UserInfo>();		
 		
-		// 취향 순 일 경우
+		// 거리 순 일 경우
 		if (sorted == 2){
 			// 거리순으로 정렬.
 			System.out.println("거리분석 실시.");
@@ -165,11 +165,6 @@ public class MatchingContoller {
 
 		    // 거리에 따라 정렬된 키의 Set을 생성
 		    Set<Double> sortedDistances = new TreeSet<>(distanceMap.keySet());
-
-		    // 정렬된 순서대로 sortedUserInfoList에 추가
-		    for (double distance : sortedDistances) {
-		        sortedUserInfoList.add(distanceMap.get(distance));
-		    }
 
 		} else {
 			List<UserLikeList> cosainA = service.cosainA(user.getUser_id()); // 로그인한 유저의 userlikelist 추출
